@@ -1,0 +1,30 @@
+import Phaser from "phaser";
+import { GameScene } from "./GameScene";
+
+export function createGame(parent: string): Phaser.Game {
+  const config: Phaser.Types.Core.GameConfig = {
+    type: Phaser.AUTO,
+    parent,
+
+    width: 960,
+    height: 640,
+
+    backgroundColor: "#111827",
+
+    scene: [GameScene],
+
+    physics: {
+      default: "arcade",
+      arcade: {
+        debug: false,
+      },
+    },
+
+    scale: {
+      mode: Phaser.Scale.FIT,
+      autoCenter: Phaser.Scale.CENTER_BOTH,
+    },
+  };
+
+  return new Phaser.Game(config);
+}
